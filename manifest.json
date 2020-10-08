@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "Beer Priming Calculator",
+    "name": "Homebrewer Tools",
     "author": "Erlend Eelmets",
     "version": "0.1",
-    "description": "Calculates the amount of priming suga required to add at the time of bottling. Intended for home brewers.",
+    "description": "Various formulas and tools that are useful for homebrewer.",
     "icons": {
       "36": "icons/android-icon-36x36.png",
       "48": "icons/android-icon-48x48.png",
@@ -27,9 +27,11 @@
     
     "background": {
         "persistent": true,
-        "scripts": ["main.js"]
+        "scripts": ["background.js"]
     },
 
     "permissions": [
-    ]
+        "webRequest",
+        "<all_urls>"
+      ]
   }
