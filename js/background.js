@@ -1,13 +1,37 @@
+document.addEventListener("click", function (event) {
+    var eventId = event.target.id;
 
-chrome.webRequest.onBeforeRequest.addListener(
-    function(details) {
-      if(details.method == "POST") {
-        console.log(details.requestBody.formData);
-      }
-    },
-    {urls: ["<all_urls>"]},
-    ["requestBody"]
-);
+    if (eventId === "btn-tab1"){
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function(item){item.style.display = "none"})
+        tabs.forEach(function(item){item.classList.remove("active")})
+        document.querySelector("#tab1").style.display = 'block';
+        document.querySelector("#btn-tab1").classList.add("active")
+    } else if(eventId === "btn-tab2"){
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function(item){item.style.display = "none"})
+        document.querySelector("#tab2").style.display = 'block';
+    } else if(eventId === "btn-tab3"){
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function(item){item.style.display = "none"})
+        document.querySelector("#tab3").style.display = 'block';
+    } else if(eventId === "btn-tab4"){
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function(item){item.style.display = "none"})
+        document.querySelector("#tab4").style.display = 'block';
+    } else if(eventId === "btn-tab5"){
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function(item){item.style.display = "none"})
+        document.querySelector("#tab5").style.display = 'block';
+    }
+}, false)
+
+document.querySelector("#beerAlcoholForm").addEventListener("submit", function(event){
+    if(!isValid){
+        event.preventDefault();
+    }
+})
+
 
 function gramsToOunces(grams) {
     grams = parseFloat(grams);

@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <img src="" class="img-fluid>">
+        <h1>
+            Brewing tools
+        </h1>
+        <div class="btn-group btn-manager" role="group">
+            <button type="button" class="btn btn-outline-dark" id="btn-tab1">Alcohol Content</button>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab2">IBU</button>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab3">ApparentAttenuation</button>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab4">QuickInfusion</button>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab5">PrimingCalculator</button>
+          </div> 
+        <div id="tab1" class="tab">
+            <h2>beerAlcoholContent</h2>
+            <p>London is the capital of England.</p>
+            <form id="beerAlcoholForm">
+                
+                <div class="form-group">
+                    
+                    <input type="text" placeholder="Original gravity" name="og" id="og" required>
+                    <label for="vehicle1">Original gravity</label><br>
+                    <input type="text" placeholder="Final gravity" name="fg" id="fg"  required>
+                    <label for="vehicle1">Final gravity</label><br>
+                    <p>Value: </p>
+                    <button  type="submit" class="btn btn-primary">Calculate</button>
+                </div>
+            </div>
+            </form>
+          </div>
+          
+          <div id="tab2" class="tab" style="display: none;">
+            <h2>beerIBU</h2>
+            <p>Paris is the capital of France.</p>
+          </div>
+          
+          <div id="tab3" class="tab"  style="display: none;">
+            <h2>beerApparentAttenuation</h2>
+            <p>Tokyo is the capital of Japan.</p>
+            <form>
+                <input type="text" placeholder="Original gravity" name="og" required>
+                <input type="text" placeholder="Final gravity" name="fg" required>
+                <p>Value: </p>
+                <button>Calculate</button>
+            </form>
+          </div>
+
+          <div id="tab4" class="tab"  style="display: none;">
+            <h2>beerQuickInfusion</h2>
+            <p>Tokyo is the capital of Japan.</p>
+          </div>
+
+          <div id="tab5" class="tab"  style="display: none;">
+            <h2>beerPrimingCalculator</h2>
+            <p>Tokyo is the capital of Japan.</p>
+            <form>
+                <input type="text" placeholder="Original gravity" name="og" required>
+                <input type="text" placeholder="Final gravity" name="fg" required>
+                <input type="text" placeholder="Final gravity" name="fg" required>
+                <p>Value: </p>
+
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label>
+
+                <input type="submit" value="Submit">
+            </form>
+          </div>
+    </div>
+    <script src="./js/background.js"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
