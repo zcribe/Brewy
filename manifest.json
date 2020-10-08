@@ -27,7 +27,7 @@
     
     "background": {
         "persistent": true,
-        "scripts": ["request-blocker.js", "css-blocker-background.js"]
+        "scripts": ["main.js"]
     },
 
     "permissions": [
