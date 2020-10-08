@@ -7,6 +7,8 @@ document.addEventListener("click", function (event) {
         tabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab1").style.display = 'block';
         document.querySelector("#btn-tab1").classList.add("active")
+        
+
     } else if(eventId === "btn-tab2"){
         var tabs = document.querySelectorAll(".tab");
         tabs.forEach(function(item){item.style.display = "none"})
