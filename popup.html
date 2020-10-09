@@ -1,90 +1,147 @@
+
+
 <!doctype html>
-
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-    <div class="container-fluid">
-        <img src="icons/android-icon-48x48.png" class="img-fluid>">
-        <h1>
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/styles.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <img src="icons/android-icon-48x48.png" class="img-fluid>">
+         <h1>
             Brewing tools
-        </h1>
-        <div class="btn-group btn-manager mb-3" role="group">
+         </h1>
+         <div class="btn-group btn-manager mb-3" role="group">
             <button type="button" class="btn btn-outline-dark" id="btn-tab1">Alcohol Content</button>
             <button type="button" class="btn btn-outline-dark" id="btn-tab2">IBU</button>
             <button type="button" class="btn btn-outline-dark" id="btn-tab3">Apparent Attenuation</button>
             <button type="button" class="btn btn-outline-dark" id="btn-tab4">Quick Infusion</button>
-            <button type="button" class="btn btn-outline-dark" id="btn-tab5">Priming Calculator</button>
-          </div> 
-        <div id="tab1" class="tab">
-            <h2>Alcohol By Volume ABV Calculator </h2>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab5">Priming</button>
+         </div>
+         <div id="tab1" class="tab">
+            <h2>Alcohol By Volume</h2>
             <p>Finds ABV based on gravity change. If you took an original gravity reading (or had estimated OG), and also took a final gravity (FG) reading prior to adding priming sugar at bottling you can find out your batch's alcohol by volume ABV. </p>
             <form id="beerAlcoholForm">
-                
-                <div class="form-group">
-                    <label for="og">Original gravity</label><br>
-                    <input type="number" placeholder="1.0058" name="og" id="og" required>
-                    <br><label for="fg">Final gravity</label><br>
-                    <input type="number" placeholder="1.0005" name="fg" id="fg"  required>
-                    
-                    <p>Value: </p>
-                    <button  type="submit" class="btn btn-primary">Calculate</button>
-                </div>
-            
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Final gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                  </div>
+                  <h4>Value: </h4>
+                  <h3 class="mb-3">Unset</h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
             </form>
-          </div>
-          
-          <div id="tab2" class="tab" style="display: none;">
-            <h2>IBU Calculator Beer Bitterness </h2>
+         </div>
+         <div id="tab2" class="tab" style="display: none;">
+            <h2>IBU Beer Bitterness </h2>
             <p>This IBU calculator reports how bitter your beer will be given up to six hops additions. It works for all grain, partial mash and extract style recipes.
-
-                International bittering units (IBUs) are used to tell how bitter your beer is (higher value means more bitterness). The IBU scale starts at zero for beers with no bitterness (fruit beers) and goes up to 120 for the super bitter and hop rich beers like Imperial IPA and American Barley Wine. You can use this tool when crafting your own recipe to ensure your beer fits the category you are shooting for. </p>
-          </div>
-          
-          <div id="tab3" class="tab"  style="display: none;">
-            <h2>beer Apparent Attenuation</h2>
+               International bittering units (IBUs) are used to tell how bitter your beer is (higher value means more bitterness). The IBU scale starts at zero for beers with no bitterness (fruit beers) and goes up to 120 for the super bitter and hop rich beers like Imperial IPA and American Barley Wine. You can use this tool when crafting your own recipe to ensure your beer fits the category you are shooting for. 
+            </p>
+            <form id="beerAlcoholForm">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Final gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                  </div>
+                  <h4>Value: </h4>
+                  <h3 class="mb-3">Unset</h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
+            </form>
+         </div>
+         <div id="tab3" class="tab"  style="display: none;">
+            <h2>Apparent Attenuation</h2>
             <p>Tokyo is the capital of Japan.</p>
-            <form>
-                <input type="text" placeholder="Original gravity" name="og" required>
-                <input type="text" placeholder="Final gravity" name="fg" required>
-                <p>Value: </p>
-                <button  type="submit" class="btn btn-primary">Calculate</button>
-            </form><br>
-          </div>
-
-          <div id="tab4" class="tab"  style="display: none;">
-            <h2>beerQuickInfusion</h2>
+            <form id="beerAlcoholForm">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Final gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                  </div>
+                  <h4>Value: </h4>
+                  <h3 class="mb-3">Unset</h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
+            </form>
+            <br>
+         </div>
+         <div id="tab4" class="tab"  style="display: none;">
+            <h2>Beer Quick Infusion</h2>
             <p>Tokyo is the capital of Japan.</p>
-          </div>
-
-          <div id="tab5" class="tab"  style="display: none;">
-            <h2>Beer Priming Calculator </h2>
+            <form id="beerAlcoholForm">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Final gravity</span>
+                     </div>
+                     <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                  </div>
+                  <h4>Value: </h4>
+                  <h3 class="mb-3">Unset</h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
+            </form>
+         </div>
+         <div id="tab5" class="tab"  style="display: none;">
+            <h2>Beer Priming</h2>
             <p>Calculates how much priming sugar to add at bottling time for home brewed beer. Includes the residual amount of CO2 present in the beer due to fermentation. Works for Corn Sugar (Dextrose), Table Sugar (Sucrose), Dry Malt Extract (DME), and variety of priming sugars. Also known as bottle priming. Sugar is added at bottling time. The remaining yeast ferment the sugar and this produces CO2. </p>
-            <form>
-                <label for="vehicle1"> I have a bike</label><br>
-                <input type="text" placeholder="Original gravity" name="og" required><br>
-                <label for="vehicle1"> I have a bike</label><br>
-                <input type="text" placeholder="Final gravity" name="fg" required><br>
-                <label for="vehicle1"> I have a bike</label><br>
-                <input type="text" placeholder="Final gravity" name="fg" required><br>
-                <p>Value: </p>
-
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1"> I have a bike</label><br>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                <label for="vehicle2"> I have a car</label><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> I have a boat</label><br>
-
-                <button  type="submit" class="btn btn-primary">Calculate</button>
-            </form><br>
-          </div>
-    </div>
-    <script src="./js/background.js"></script>
-    <script src="./js/scripts.js"></script>
-</body>
+            <form id="beerAlcoholForm">
+                <div class="form-group">
+                   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text">Original gravity</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                   </div>
+                   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text">Final gravity</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                   </div>
+                   <h4>Value: </h4>
+                   <h3 class="mb-3">Unset</h3>
+                   <button  type="submit" class="btn btn-primary">Calculate</button>
+                </div>
+             </form>
+            <br>
+         </div>
+      </div>
+      <script src="./js/background.js"></script>
+      <script src="./js/scripts.js"></script>
+   </body>
 </html>
+
