@@ -9,10 +9,12 @@
    </head>
    <body>
       <div class="container-fluid">
-         <img src="icons/android-icon-48x48.png" class="img-fluid>">
-         <h1>
-            Brewing tools
-         </h1>
+         <div class="m-3 d-flex">
+            <div class="mr-3"><img src="icons/android-icon-48x48.png" class="img-fluid>"></div>
+            <span class="h1">
+               Brewing tools
+            </span>
+         </div>
          <div class="btn-group btn-manager mb-3" role="group">
             <button type="button" class="btn btn-outline-dark" id="btn-tab1">Alcohol Content</button>
             <button type="button" class="btn btn-outline-dark" id="btn-tab2">IBU</button>
@@ -23,22 +25,22 @@
          <div id="tab1" class="tab">
             <h2>Alcohol By Volume</h2>
             <p>Finds ABV based on gravity change. If you took an original gravity reading (or had estimated OG), and also took a final gravity (FG) reading prior to adding priming sugar at bottling you can find out your batch's alcohol by volume ABV. </p>
-            <form id="beerAlcoholForm">
+            <form id="abv-form">
                <div class="form-group">
                   <div class="input-group mb-3">
                      <div class="input-group-prepend">
                         <span class="input-group-text">Original gravity</span>
                      </div>
-                     <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                     <input type="number" class="form-control" step="0.001" placeholder="1.058" name="og" id="abv-og" required>
                   </div>
                   <div class="input-group mb-3">
                      <div class="input-group-prepend">
                         <span class="input-group-text">Final gravity</span>
                      </div>
-                     <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                     <input type="number" class="form-control" step="0.001" placeholder="1.005" name="fg" id="abv-fg"  required>
                   </div>
-                  <h4>Value: </h4>
-                  <h3 class="mb-3">Unset</h3>
+                  <h4 class="mb-3">Value: </h4>
+                  <h3 class="mb-3" id="abv-val">0<span>%</span></h3>
                   <button  type="submit" class="btn btn-primary">Calculate</button>
                </div>
             </form>
@@ -118,22 +120,28 @@
          <div id="tab5" class="tab"  style="display: none;">
             <h2>Beer Priming</h2>
             <p>Calculates how much priming sugar to add at bottling time for home brewed beer. Includes the residual amount of CO2 present in the beer due to fermentation. Works for Corn Sugar (Dextrose), Table Sugar (Sucrose), Dry Malt Extract (DME), and variety of priming sugars. Also known as bottle priming. Sugar is added at bottling time. The remaining yeast ferment the sugar and this produces CO2. </p>
-            <form id="beerAlcoholForm">
+            <form id="primer-form">
                 <div class="form-group">
                    <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                         <span class="input-group-text">Original gravity</span>
+                         <span class="input-group-text">Amount(L)</span>
                       </div>
-                      <input type="number" class="form-control" placeholder="1.0058" name="og" id="og" required>
+                      <input type="number" class="form-control" placeholder="20" name="og" id="og" required>
                    </div>
                    <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                         <span class="input-group-text">Final gravity</span>
+                         <span class="input-group-text">Volumes of CO2</span>
                       </div>
-                      <input type="number" class="form-control" placeholder="1.0005" name="fg" id="fg"  required>
+                      <input type="number" class="form-control" placeholder="2.0" name="fg" id="fg"  required>
                    </div>
+                   <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                       <span class="input-group-text">Temperature</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="20" name="temp" id="temp"  required>
+                 </div>
                    <h4>Value: </h4>
-                   <h3 class="mb-3">Unset</h3>
+                   <h3 class="mb-3">0</h3>
                    <button  type="submit" class="btn btn-primary">Calculate</button>
                 </div>
              </form>

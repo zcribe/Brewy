@@ -28,8 +28,20 @@ document.addEventListener("click", function (event) {
     }
 }, false)
 
-document.querySelector("#beerAlcoholForm").addEventListener("submit", function(event){
-    if(!isValid){
+document.addEventListener("submit", function(event){
+    var inpObj = event.target
+
+    if(inpObj.checkValidity() && inpObj.id === "abv-form"){
+        var og = document.querySelector("#abv-og").value
+        var fg = document.querySelector("#abv-fg").value
+        var abv = beerAlcoholContent(og, fg)
+        document.querySelector("#abv-val").textContent = abv.toString() + "%"
+        event.preventDefault();
+    } else if (inpObj.checkValidity() && inpObj.id === "primer-form"){
+        var og = document.querySelector("#abv-og").value
+        var fg = document.querySelector("#abv-fg").value
+        var abv = beerAlcoholContent(og, fg)
+        document.querySelector("#abv-val").textContent = abv.toString() + "%"
         event.preventDefault();
     }
 })
@@ -92,7 +104,7 @@ function rounddecimal(n, places) {
 
 function beerAlcoholContent(originalGravity, finalGravity){
     // https://www.brewersfriend.com/2011/06/16/alcohol-by-volume-calculator-updated/
-    return (76.08 * (originalGravity - finalGravity) / (1.775 - originalGravity)) * (finalGravity / 0.794)
+    return rounddecimal((76.08 * (originalGravity - finalGravity) / (1.775 - originalGravity)) * (finalGravity / 0.794), 1)
 }
 
 function beerAlcoholContentSecondary() {
@@ -200,7 +212,7 @@ function beerQuickInfusion() {
     divinfuse.innerHTML = rounddecimal(addboiling, 1) + " " + infusionstring
 }
 
-function beerPrimingCalculator() {
+function beerPrimingCalculator(temp, tempunit, batchsize, beerCO2) {
     // https://www.brewersfriend.com/beer-priming-calculator/
     // Carbonation Guidelines by Style
     // British Style Ales 	1.5 - 2.0 volumes
