@@ -38,10 +38,11 @@ document.addEventListener("submit", function(event){
         document.querySelector("#abv-val").textContent = abv.toString() + "%"
         event.preventDefault();
     } else if (inpObj.checkValidity() && inpObj.id === "primer-form"){
-        var og = document.querySelector("#abv-og").value
-        var fg = document.querySelector("#abv-fg").value
-        var abv = beerAlcoholContent(og, fg)
-        document.querySelector("#abv-val").textContent = abv.toString() + "%"
+        var og = document.querySelector("#primer-og").value
+        var fg = document.querySelector("#primer-fg").value
+        var temp = document.querySelector("#primer-temp").value
+        var priming = beerPrimingCalculator(og, "C", fg, temp)
+        document.querySelector("#primer-val").textContent = priming.toString()
         event.preventDefault();
     }
 })
@@ -268,6 +269,7 @@ function beerPrimingCalculator(temp, tempunit, batchsize, beerCO2) {
         RiceSolids = gramsToOunces(RiceSolids);
         weight_unit = "oz."
     }
-    divResults.innerHTML = "Table Sugar: " + rounddecimal(sucrose, 1) + " " + weight_unit + "<br/>" + "Corn Sugar: " + rounddecimal(dextrose, 1) + " " + weight_unit + "<br/>" + "DME - All Varieties: " + rounddecimal(dme, 1) + " " + weight_unit + "<br>" + "Belgian Candy Syrup: " + rounddecimal(BelgianCandySyrup, 1) + " " + weight_unit + "<br/>" + "Belgian Candy Sugar: " + rounddecimal(BelgianCandySugar, 1) + " " + weight_unit + "<br/>" + "Black Treacle: " + rounddecimal(BlackTreacle, 1) + " " + weight_unit + "<br/>" + "Brown Sugar: " + rounddecimal(BrownSugar, 1) + " " + weight_unit + "<br/>" + "Corn Syrup: " + rounddecimal(cornsyrup, 1) + " " + weight_unit + "<br/>" + "Demarara: " + rounddecimal(demarara, 1) + " " + weight_unit + "<br/>" + "DME - Laaglander: " + rounddecimal(DMELaaglander, 1) + " " + weight_unit + "<br/>" + "Honey: " + rounddecimal(Honey, 1) + " " + weight_unit + "<br/>" + "Invert Sugar Syrup: " + rounddecimal(InvertSugar, 1) + " " + weight_unit + "<br/>" + "Maple Syrup: " + rounddecimal(MapleSyrup, 1) + " " + weight_unit + "<br/>" + "Molasses: " + rounddecimal(Molasses, 1) + " " + weight_unit + "<br/>" + "Rice Solids: " + rounddecimal(RiceSolids, 1) + " " + weight_unit + "<br/>" + "Sorghum Syrup: " + rounddecimal(SorghumSyrup, 1) + " " + weight_unit + "<br/>" + "Turbinado: " + rounddecimal(turbinado, 1) + " " + weight_unit + "<br/>";
-    divBeerCO2.innerHTML = rounddecimal(beerCO2, 2) + " volumes"
+    var sugar =  "Table Sugar: " + rounddecimal(sucrose, 1) + " " + weight_unit + "<br/>" + "Corn Sugar: " + rounddecimal(dextrose, 1) + " " + weight_unit + "<br/>" + "DME - All Varieties: " + rounddecimal(dme, 1) + " " + weight_unit + "<br>" + "Belgian Candy Syrup: " + rounddecimal(BelgianCandySyrup, 1) + " " + weight_unit + "<br/>" + "Belgian Candy Sugar: " + rounddecimal(BelgianCandySugar, 1) + " " + weight_unit + "<br/>" + "Black Treacle: " + rounddecimal(BlackTreacle, 1) + " " + weight_unit + "<br/>" + "Brown Sugar: " + rounddecimal(BrownSugar, 1) + " " + weight_unit + "<br/>" + "Corn Syrup: " + rounddecimal(cornsyrup, 1) + " " + weight_unit + "<br/>" + "Demarara: " + rounddecimal(demarara, 1) + " " + weight_unit + "<br/>" + "DME - Laaglander: " + rounddecimal(DMELaaglander, 1) + " " + weight_unit + "<br/>" + "Honey: " + rounddecimal(Honey, 1) + " " + weight_unit + "<br/>" + "Invert Sugar Syrup: " + rounddecimal(InvertSugar, 1) + " " + weight_unit + "<br/>" + "Maple Syrup: " + rounddecimal(MapleSyrup, 1) + " " + weight_unit + "<br/>" + "Molasses: " + rounddecimal(Molasses, 1) + " " + weight_unit + "<br/>" + "Rice Solids: " + rounddecimal(RiceSolids, 1) + " " + weight_unit + "<br/>" + "Sorghum Syrup: " + rounddecimal(SorghumSyrup, 1) + " " + weight_unit + "<br/>" + "Turbinado: " + rounddecimal(turbinado, 1) + " " + weight_unit + "<br/>";
+    var co = rounddecimal(beerCO2, 2) + " volumes"
+    return {"sugar": sugar, "co": co}
 }
