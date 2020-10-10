@@ -38,11 +38,23 @@ document.addEventListener("submit", function(event){
         document.querySelector("#abv-val").textContent = abv.toString() + "%"
         event.preventDefault();
     } else if (inpObj.checkValidity() && inpObj.id === "primer-form"){
-        var og = document.querySelector("#primer-og").value
-        var fg = document.querySelector("#primer-fg").value
+        var batch = document.querySelector("#primer-batch").value
+        var volumes = document.querySelector("#primer-volumes").value
         var temp = document.querySelector("#primer-temp").value
-        var priming = beerPrimingCalculator(og, "C", fg, temp)
-        document.querySelector("#primer-val").textContent = priming.toString()
+        var priming = beerPrimingCalculator(batch, volumes, temp)
+        var sugars = convertSugars(priming)
+        document.querySelector("#primer-body").textContent = ''
+        Object.keys(sugars).map(function(objKey, index){
+            var value = sugars[objKey]
+            var containerElem = document.createElement("tr")
+            var keyElem = document.createElement("td")
+            keyElem.textContent = objKey.toString()
+            var valueElem = document.createElement("td")
+            valueElem.textContent = value.toString() + "g"
+            containerElem.appendChild(keyElem)
+            containerElem.appendChild(valueElem)
+            document.querySelector("#primer-body").appendChild(containerElem)
+        })
         event.preventDefault();
     }
 })
@@ -107,4 +119,10 @@ function beerAlcoholContent(originalGravity, finalGravity){
     return rounddecimal((76.08 * (originalGravity - finalGravity) / (1.775 - originalGravity)) * (finalGravity / 0.794), 1)
 }
 
+function beerPrimingCalculator(temp, batchsize, volumes) {
+    return rounddecimal(((volumes * 2) - (3.0378 - (0.050062 * temp) + (0.00026555 * temp * temp) * 2)) * 2 * batchsize, 1)
+}
 
+function convertSugars(sucrose){
+    return {"Sucrose": rounddecimal(sucrose, 1), "Dextrose": rounddecimal(sucrose / 0.91, 1), "Brown sugar": rounddecimal(sucrose / 0.89,1) , "Honey": rounddecimal(sucrose / 0.74, 1)};
+}

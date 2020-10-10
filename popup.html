@@ -17,6 +17,7 @@
          </div>
          <div class="btn-group btn-manager mb-3" role="group">
             <button type="button" class="btn btn-outline-dark" id="btn-tab1">Alcohol Content</button>
+            <button type="button" class="btn btn-outline-dark" id="btn-tab5">Priming</button>
 
          </div>
          <div id="tab1" class="tab">
@@ -41,6 +42,45 @@
                   <button  type="submit" class="btn btn-primary">Calculate</button>
                </div>
             </form>
+         </div>
+         <div id="tab5" class="tab"  style="display: none;">
+            <h2>Beer Priming</h2>
+            <p>Calculates how much priming sugar to add at bottling time for home brewed beer. Includes the residual amount of CO2 present in the beer due to fermentation. Works for Corn Sugar (Dextrose), Table Sugar (Sucrose), Dry Malt Extract (DME), and variety of priming sugars. Also known as bottle priming. Sugar is added at bottling time. The remaining yeast ferment the sugar and this produces CO2. </p>
+            <form id="primer-form">
+                <div class="form-group">
+                   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text">Amount(L)</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="20" name="og" id="primer-batch" required>
+                   </div>
+                   <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text">Volumes of CO2</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="2.0" name="fg" id="primer-volumes"  required>
+                   </div>
+                   <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                       <span class="input-group-text">Temperature</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="20" name="temp" id="primer-temp"  required>
+                 </div>
+                   
+                   <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Sugar</th>
+                        <th scope="col">Weight</th>
+                      </tr>
+                    </thead>
+                    <tbody id="primer-body">
+                    </tbody>
+                  </table>
+                   <button  type="submit" class="btn btn-primary">Calculate</button>
+                </div>
+             </form>
+            <br>
          </div>
 
       </div>
