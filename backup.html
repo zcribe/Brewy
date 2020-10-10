@@ -1,0 +1,52 @@
+<button type="button" class="btn btn-outline-dark" id="btn-tab5">Priming</button>
+<div id="tab5" class="tab"  style="display: none;">
+    <h2>Beer Priming</h2>
+    <p>Calculates how much priming sugar to add at bottling time for home brewed beer. Includes the residual amount of CO2 present in the beer due to fermentation. Works for Corn Sugar (Dextrose), Table Sugar (Sucrose), Dry Malt Extract (DME), and variety of priming sugars. Also known as bottle priming. Sugar is added at bottling time. The remaining yeast ferment the sugar and this produces CO2. </p>
+    <form id="primer-form">
+        <div class="form-group">
+           <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                 <span class="input-group-text">Amount(L)</span>
+              </div>
+              <input type="number" class="form-control" placeholder="20" name="og" id="primer-og" required>
+           </div>
+           <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                 <span class="input-group-text">Volumes of CO2</span>
+              </div>
+              <input type="number" class="form-control" placeholder="2.0" name="fg" id="primer-fg"  required>
+           </div>
+           <div class="input-group mb-3">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Temperature</span>
+            </div>
+            <input type="number" class="form-control" placeholder="20" name="temp" id="primer-temp"  required>
+         </div>
+           
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sugar</th>
+                <th scope="col">Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+              </tr>
+              <tr>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+            </tbody>
+          </table>
+           <button  type="submit" class="btn btn-primary">Calculate</button>
+        </div>
+     </form>
+    <br>
+ </div>
