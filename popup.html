@@ -16,8 +16,10 @@
             </span>
          </div>
          <div class="btn-group btn-manager mb-3" role="group">
-            <button type="button" class="btn btn-outline-dark" id="btn-tab1">Alcohol Content</button>
-            <button type="button" class="btn btn-outline-dark" id="btn-tab5">Priming</button>
+            <button type="button" class="btn btn-outline-dark btn-tab" id="btn-tab1">Alcohol Content</button>
+            <button type="button" class="btn btn-outline-dark btn-tab" id="btn-tab2">Apparent Attenuation</button>
+            <button type="button" class="btn btn-outline-dark btn-tab" id="btn-tab3">Pitching Rate</button>
+            <button type="button" class="btn btn-outline-dark btn-tab" id="btn-tab5">Priming</button>
 
          </div>
          <div id="tab1" class="tab">
@@ -43,6 +45,62 @@
                </div>
             </form>
          </div>
+         <div id="tab2" class="tab" style="display: none;">
+            <h2>Apparent Attenuation</h2>
+            <p>In brewing, attenuation refers to the conversion of sugars into alcohol and carbon dioxide by the fermentation process; the greater the attenuation, the more sugar has been converted into alcohol. A more attenuated beer is drier and more alcoholic than a less attenuated beer made from the same wort.
+
+               Attenuation can be quantified by comparing the specific gravity — the density of a solution, relative to pure water — of the extract before and after fermentation, quantities termed the original and final gravities. Specific gravity can be measured by buoyancy, with a hydrometer. The higher the specific gravity of a solution, the higher the hydrometer floats.</p>
+            <form id="aa-form">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" step="0.001" placeholder="1.058" name="og" id="aa-og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Final gravity</span>
+                     </div>
+                     <input type="number" class="form-control" step="0.001" placeholder="1.005" name="fg" id="aa-fg"  required>
+                  </div>
+                  <h4 class="mb-3">Value: </h4>
+                  <h3 class="mb-3" id="aa-val">0<span></span></h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
+            </form>
+         </div>
+
+         <div id="tab3" class="tab" style="display: none;">
+            <h2>Pitch Rate</h2>
+            <p>The term pitch rate refers to the amount of yeast that is added to cooled wort. Pitch rate is generally referred to in cells per milliliter.</p>
+            <form id="pr-form">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Original gravity</span>
+                     </div>
+                     <input type="number" class="form-control" step="0.001" placeholder="1.058" name="og" id="pr-og" required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">Wort Volume</span>
+                     </div>
+                     <input type="number" class="form-control" step="0.1" placeholder="23" name="fg" id="pr-wv"  required>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">K</span>
+                     </div>
+                     <input type="number" class="form-control" step="0.1" placeholder="20" name="fg" id="pr-k"  required>
+                  </div>
+                  <h4 class="mb-3">Value: </h4>
+                  <h3 class="mb-3" id="pr-val">0<span></span></h3>
+                  <button  type="submit" class="btn btn-primary">Calculate</button>
+               </div>
+            </form>
+         </div>
+         
          <div id="tab5" class="tab"  style="display: none;">
             <h2>Beer Priming</h2>
             <p>Calculates how much priming sugar to add at bottling time for home brewed beer. Includes the residual amount of CO2 present in the beer due to fermentation. Works for Corn Sugar (Dextrose), Table Sugar (Sucrose), Dry Malt Extract (DME), and variety of priming sugars. Also known as bottle priming. Sugar is added at bottling time. The remaining yeast ferment the sugar and this produces CO2. </p>

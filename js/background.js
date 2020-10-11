@@ -3,28 +3,39 @@ document.addEventListener("click", function (event) {
 
     if (eventId === "btn-tab1"){
         var tabs = document.querySelectorAll(".tab");
+        var btnTabs = document.querySelectorAll(".btn-tab");
         tabs.forEach(function(item){item.style.display = "none"})
-        tabs.forEach(function(item){item.classList.remove("active")})
+        btnTabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab1").style.display = 'block';
-        document.querySelector("#btn-tab1").classList.add("active")
-        
-
+        document.querySelector("#btn-tab1").classList.add("active") 
     } else if(eventId === "btn-tab2"){
         var tabs = document.querySelectorAll(".tab");
+        var btnTabs = document.querySelectorAll(".btn-tab");
         tabs.forEach(function(item){item.style.display = "none"})
+        btnTabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab2").style.display = 'block';
+        document.querySelector("#btn-tab2").classList.add("active")
     } else if(eventId === "btn-tab3"){
         var tabs = document.querySelectorAll(".tab");
+        var btnTabs = document.querySelectorAll(".btn-tab");
         tabs.forEach(function(item){item.style.display = "none"})
+        btnTabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab3").style.display = 'block';
+        document.querySelector("#btn-tab3").classList.add("active")
     } else if(eventId === "btn-tab4"){
         var tabs = document.querySelectorAll(".tab");
+        var btnTabs = document.querySelectorAll(".btn-tab");
         tabs.forEach(function(item){item.style.display = "none"})
+        btnTabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab4").style.display = 'block';
+        document.querySelector("#btn-tab4").classList.add("active")
     } else if(eventId === "btn-tab5"){
         var tabs = document.querySelectorAll(".tab");
+        var btnTabs = document.querySelectorAll(".btn-tab");
         tabs.forEach(function(item){item.style.display = "none"})
+        btnTabs.forEach(function(item){item.classList.remove("active")})
         document.querySelector("#tab5").style.display = 'block';
+        document.querySelector("#btn-tab5").classList.add("active")
     }
 }, false)
 
@@ -55,6 +66,21 @@ document.addEventListener("submit", function(event){
             containerElem.appendChild(valueElem)
             document.querySelector("#primer-body").appendChild(containerElem)
         })
+        event.preventDefault();
+    } else if (inpObj.checkValidity() && inpObj.id === "aa-form"){
+        var og = document.querySelector("#aa-og").value
+        var fg = document.querySelector("#aa-fg").value
+        var baa = beerApparentAttenuation(og, fg)
+        document.querySelector("#aa-val").textContent = baa.toString()
+        event.preventDefault();
+    } else if (inpObj.checkValidity() && inpObj.id === "pr-form"){
+        var originalGravity = document.querySelector("#pr-og").value
+        var wortVolume = document.querySelector("#pr-wv").value
+        var k = document.querySelector("#pr-k").value
+        var bpr = beerPitchingRate(k, wortVolume, originalGravity)
+        document.querySelector("#pr-val").textContent = bpr.toString() 
+        event.preventDefault();
+    } else {
         event.preventDefault();
     }
 })
@@ -125,4 +151,12 @@ function beerPrimingCalculator(temp, batchsize, volumes) {
 
 function convertSugars(sucrose){
     return {"Sucrose": rounddecimal(sucrose, 1), "Dextrose": rounddecimal(sucrose / 0.91, 1), "Brown sugar": rounddecimal(sucrose / 0.89,1) , "Honey": rounddecimal(sucrose / 0.74, 1)};
+}
+
+function beerApparentAttenuation(originalGravity, finalGravity){
+    return (originalGravity - finalGravity) / originalGravity
+}
+
+function beerPitchingRate(k, wortVolume, originalGravity){
+    return k * wortVolume * (originalGravity/4)
 }
