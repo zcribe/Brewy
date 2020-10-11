@@ -28,16 +28,12 @@
     "background": {
         "persistent": true,
         "scripts": [
-            "js/background.js",
-            "js/scripts.js"
+            "js/background.js"
         ]
     },
 
 
     "permissions": [
-        "webRequest",
-        "<all_urls>",
-        "tabs",
         "activeTab"
       ]
   }
