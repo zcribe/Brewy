@@ -1,13 +1,17 @@
+function makeActiveTab(block, button){
+    var tabs = document.querySelectorAll(".tab");
+    var btnTabs = document.querySelectorAll(".btn-tab");
+    tabs.forEach(function(item){item.style.display = "none"})
+    btnTabs.forEach(function(item){item.classList.remove("active")})
+    document.querySelector(block).style.display = 'block';
+    document.querySelector(button).classList.add("active") 
+}
+
 document.addEventListener("click", function (event) {
     var eventId = event.target.id;
 
     if (eventId === "btn-tab1"){
-        var tabs = document.querySelectorAll(".tab");
-        var btnTabs = document.querySelectorAll(".btn-tab");
-        tabs.forEach(function(item){item.style.display = "none"})
-        btnTabs.forEach(function(item){item.classList.remove("active")})
-        document.querySelector("#tab1").style.display = 'block';
-        document.querySelector("#btn-tab1").classList.add("active") 
+        makeActiveTab("#tab1", "btn-tab1")
     } else if(eventId === "btn-tab2"){
         var tabs = document.querySelectorAll(".tab");
         var btnTabs = document.querySelectorAll(".btn-tab");
